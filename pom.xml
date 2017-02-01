@@ -7,10 +7,39 @@
     <packaging>jar</packaging>
 
     <profiles>
+
       <profile>
         <id>Default</id>
         <activation>
           <activeByDefault>true</activeByDefault>
+        </activation>
+        <repositories>
+          <repository>
+	          <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+          </repository>
+        </repositories>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.SemanticWebBuilder</groupId>
+                <artifactId>SWBXMLRPCCommon</artifactId>
+                <version>master-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+        <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+      </profile>
+
+      <profile>
+        <id>Local</id>
+        <activation>
+          <property>
+            <name>local</name>
+            <value>true</value>
+          </property>
         </activation>
         <dependencies>
             <dependency>
@@ -25,6 +54,7 @@
             <maven.compiler.target>1.8</maven.compiler.target>
         </properties>
       </profile>
+
       <profile>
         <id>Branch</id>
         <activation>
@@ -43,6 +73,33 @@
                 <groupId>com.github.SemanticWebBuilder</groupId>
                 <artifactId>SWBXMLRPCCommon</artifactId>
                 <version>${branchtag}-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+        <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+      </profile>
+
+      <profile>
+        <id>Release</id>
+        <activation>
+          <property>
+            <name>releasetag</name>
+          </property>
+        </activation>
+        <repositories>
+          <repository>
+	          <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+          </repository>
+        </repositories>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.SemanticWebBuilder</groupId>
+                <artifactId>SWBXMLRPCCommon</artifactId>
+                <version>${releasetag}</version>
             </dependency>
         </dependencies>
         <properties>
