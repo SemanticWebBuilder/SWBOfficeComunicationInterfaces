@@ -1,1 +1,2 @@
 # SWBOfficeComunicationInterfaces
+MS Office plugin communication components for SemanticWebBuilder
